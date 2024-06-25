@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <title>Zara Inspirations</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Zara Inspirations</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <nav class="navbar">
+            <a href="/" class="active">Inicio</a>
+            <a href="{% url 'perfumes' %}">Perfumes</a>
+            <a href="{% url 'inspiraciones' %}">Inspiraciones</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+    
+    
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="title-container">
+                <h1>Zara Inspirations</h1>
+                <div class="background-image"></div>
+            </div>
+            <div class="text-animate"></div>
+        </div>
+        <div class="home-sci">
+            <a href="https://github.com/santiagocastillo01"><i class="bx bxl-github"></i></a>
+            <a href="https://www.linkedin.com/in/santiagocastillo01/"><i class="bx bxl-linkedin-square"></i></a>
+        </div>
+    </section>
+    <section class="perfume-categories" id="perfume-categories">
+        <div class="title">
+            <h2 class="heading">Buscar perfumes:</h2>
+        </div>
+        <div class="categories">
+            <a href="{% url 'perfumes' %}">
+                <div class="perfume-category" id="zara-originals">
+                    <h2 class="category-title">Zara Originals</h2>
+                </div>
+            </a>
+            <a href="{% url 'inspiraciones' %}">
+                <div class="perfume-category" id="inspirations">
+                    <h2 class="category-title">Inspirations</h2>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2 class="heading"><span>¿Quieres</span> contactarme?</h2>
+        <a href="{% url 'contacto' %}">
+            <div class="btn-box btns">
+                <a href="{% url 'contacto' %}"><button class="btn">Contacto</button></a>
+            </div>
+        </a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Zara Inspirations | Santiago Castillo</p>
+        </div>
+        <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    </footer>
+</body>
+</html>

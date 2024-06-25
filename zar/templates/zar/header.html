@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Zara Inspirations{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Zara Inspirations</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <nav class="navbar">
+            <a href="{% url 'home' %}" class="active">Inicio</a>
+            <a href="{% url 'perfumes' %}">Perfumes</a>
+            <a href="{% url 'inspiraciones' %}">Inspiraciones</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

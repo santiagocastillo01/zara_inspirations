@@ -1,0 +1,30 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+Zara Ins | Perfumes
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'productos.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="product-container">
+    {% for product in products %}
+    <div class="product-card">
+        <img src="{% static product.image %}" alt="{{ product.name }}">
+        <div class="product-name">{{ product.name }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+<!--FOOTER---------------------->
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop">
+    </div>
+</footer>
+{% endblock %}
