@@ -9,22 +9,23 @@ Zara Ins | Perfumes
 {% endblock %}
 
 {% block content %}
-<div class="product-container">
-    {% for product in products %}
-    <div class="product-card">
-        <img src="{% static product.image %}" alt="{{ product.name }}">
-        <div class="product-name">{{ product.name }}</div>
+<div class="productos-container">
+    {% for perfume in perfumes %}
+    <div class="producto-card">
+        <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}">
+        <h2>{{ perfume.nombre }}</h2>
+        <p>{{ perfume.descripcion }}</p>
+        <p><strong>Inspiración:</strong> {{ perfume.inspiracion }}</p>
+        <img src="{{ perfume.imagen_inspiracion.url }}" alt="Inspiración de {{ perfume.nombre }}">
     </div>
     {% endfor %}
 </div>
 
-<!--FOOTER---------------------->
 <footer class="footer">
     <div class="footer-text">
         <p>Zara Inspirations | Santiago Castillo</p>
     </div>
     <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
-    <div class="footer-iconTop">
-    </div>
+    <div class="footer-iconTop"></div>
 </footer>
 {% endblock %}

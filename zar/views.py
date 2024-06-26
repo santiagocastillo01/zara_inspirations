@@ -5,7 +5,8 @@ def home (request):
     return render(request, "zar/home.html")
 
 def perfumes (request):
-    return render(request, "zar/perfumes.html")
+    perfumes = Perfume.objects.all()
+    return render(request, 'zar/perfumes.html', {'perfumes': perfumes})
 
 def inspiraciones (request):
     return render(request, "zar/inspiraciones.html")

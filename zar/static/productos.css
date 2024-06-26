@@ -26,37 +26,33 @@ body {
     align-items: center;
 }
 
-.product-container {
+.productos-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
     gap: 20px;
+    padding: 20px;
 }
 
-.product-card {
-    background-color: var(--bg-color);
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+.producto-card {
     width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
     text-align: center;
+    transition: transform 0.2s;
 }
 
-.product-card img {
-    width: 100%;
-    height: auto;
+.producto-card img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
-.product-name {
-    padding: 15px;
-    font-size: 16px;
-    color: #333;
+.producto-card h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.producto-card:hover {
+    transform: scale(1.05);
 }

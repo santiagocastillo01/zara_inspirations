@@ -2,35 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-class Curso(models.Model):
-    nombre = models.CharField(max_length=50)
-    comision = models.IntegerField()
-
-class Estudiante(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-
-class Profesor(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=40)
-
-class Entregable(models.Model):
-    nombre = models.CharField(max_length=50)
-    fechaEntrega = models.DateField()
-    entregado = models.BooleanField()
-    
-
 class Perfume(models.Model):
-    nombre = models.CharField(max_length=500)
+    imagen_perfume = models.ImageField(upload_to='perfumes/', default='Error.')
+    nombre = models.CharField(max_length=100, default='Nombre no disponible')
+    descripcion = models.TextField(default='Descripción no disponible')
+    inspiracion = models.CharField(max_length=100, default='Nombre no disponible')
+    imagen_inspiracion = models.ImageField(upload_to='inspiraciones/', default='Error.')
 
-
-class Descripcion(models.Model):
-    nombre = models.CharField(max_length=9999)
-    
-
-class Inspiracion(models.Model):
-    nombre = models.CharField(max_length=500)
-
+    def __str__(self):
+        return self.nombre
