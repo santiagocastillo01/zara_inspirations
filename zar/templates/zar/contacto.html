@@ -5,29 +5,24 @@ Zara Ins | Contacto
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static '/contacto.css' %}">
+<link rel="stylesheet" href="{% static 'contacto.css' %}">
 {% endblock %}
 
 {% block content %}
+<section class="contacto" id="contacto">
+    <div class="contacto-container">
+        <div class="cv-item">
+            <img src="{% static 'img/cv.png' %}" alt="Mi CV">
+            
+        </div>
+    </div>
+</section>
 
-
-<h1>contacto</h1>
-
-
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
 {% endblock %}
-
-
-     
- 
-      <!--FOOTER---------------------->
-      <footer class="footer">
-        <div class="footer-text">
-          <p>Zara Inspirations | Santiago Castillo</p>
-        </div>
-          <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
-        <div class="footer-iconTop">
-  
-        </div>
-      </footer>
-</body>
-</html>

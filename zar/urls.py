@@ -8,7 +8,8 @@ urlpatterns = [
     path('',home, name="home"),
     path('inspiraciones/',views.inspiraciones, name='inspiraciones'),
     path('contacto',views.contacto, name='contacto'),
-    path('perfumes/',views.perfumes, name='perfumes')
+    path('perfumes/',views.perfumes, name='perfumes'),
+    path('perfumes/<int:perfume_id>/', views.perfume_detail, name='perfume_detail'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

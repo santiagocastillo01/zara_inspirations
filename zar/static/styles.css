@@ -95,7 +95,7 @@ header {
     left: 0;
     width: 100%;
     padding: 2rem 8%;
-    background: transparent;
+    background: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -135,14 +135,18 @@ section {
 }
 
 .home {
+    background-image: url('./img/home.png');
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 9%;
     width: 100%;
-    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
-    position: relative; /* Necesario para el posicionamiento absoluto del contenido */
-    z-index: 0; /* Asegura que otros elementos estén sobre la imagen de fondo */
+    height: 100vh; 
+    position: relative;
+    z-index: 0; 
 }
 
 .home-content {
@@ -150,8 +154,8 @@ section {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Importante para el posicionamiento del contenido */
-    z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
+    position: relative; 
+    z-index: 1; 
 }
 
 .title-container {
@@ -164,8 +168,8 @@ section {
     font-size: 5.6rem;
     font-weight: 700;
     line-height: 1.3;
-    color: white; /* Asegura que el texto sea visible sobre la imagen */
-    z-index: 1; /* Asegura que el texto esté por encima de la imagen de fondo */
+    color: white; 
+    z-index: 1; 
 }
 
 .home-content .text-animate {

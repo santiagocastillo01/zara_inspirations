@@ -5,29 +5,27 @@ Zara Ins | Inspirations
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static '/productos.css' %}">
+<link rel="stylesheet" href="{% static 'productos.css' %}">
 {% endblock %}
 
 {% block content %}
+<section class="products" id="products">
+    <div class="products-container">
+        {% for inspiracion in inspiraciones %}
+        <a href="{% url 'perfume_detail' inspiracion.id %}" class="product-item">
+        
+            <img src="{{ inspiracion.imagen_inspiracion.url }}" alt="{{ inspiracion.inspiracion }}" class="product-image">
+            <h2 class="product-name">{{ inspiracion.inspiracion }}</h2>
+        </a>
+        {% endfor %}
+    </div>
+</section>
 
-
-<h1>inspiraciones</h1>
-
-
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
 {% endblock %}
-
-
-     
- 
-      <!--FOOTER---------------------->
-      <footer class="footer">
-        <div class="footer-text">
-          <p>Zara Inspirations | Santiago Castillo</p>
-        </div>
-          <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
-        <div class="footer-iconTop">
-  
-        </div>
-      </footer>
-</body>
-</html>

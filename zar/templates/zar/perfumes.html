@@ -5,21 +5,20 @@ Zara Ins | Perfumes
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'productos.css' %}">
+<link rel="stylesheet" href="{% static '/productos.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="productos-container">
+<section class="products" id="products">
+<div class="products-container">
     {% for perfume in perfumes %}
-    <div class="producto-card">
-        <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}">
-        <h2>{{ perfume.nombre }}</h2>
-        <p>{{ perfume.descripcion }}</p>
-        <p><strong>Inspiración:</strong> {{ perfume.inspiracion }}</p>
-        <img src="{{ perfume.imagen_inspiracion.url }}" alt="Inspiración de {{ perfume.nombre }}">
-    </div>
+    <a href="{% url 'perfume_detail' perfume.id %}" class="product-item">
+        <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}" class="product-image">
+        <h2 class="product-name">{{ perfume.nombre }}</h2>
+    </a>
     {% endfor %}
 </div>
+</section>
 
 <footer class="footer">
     <div class="footer-text">
