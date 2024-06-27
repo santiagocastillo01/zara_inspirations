@@ -26,3 +26,60 @@ body {
     align-items: center;
 }
 
+.contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 10%;
+}
+
+.contacto-container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.cv-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cv-item h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Estilos generales */
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+    position: relative;
+}
+
+.footer-text {
+    color: #666;
+}
+
+.footer-iconTop {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+/* Media Query para dispositivos pequeños */
+@media (max-width: 768px) {
+    .contacto {
+        padding: 0 5%;
+    }
+}
