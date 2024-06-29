@@ -1,7 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
-
-from .models import Perfume
+from .models import Perfume, Perfume_woman, Usuario
 
 admin.site.register(Perfume)
+admin.site.register(Perfume_woman)
+admin.site.register(Usuario)

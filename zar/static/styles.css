@@ -106,8 +106,12 @@ header {
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 600;
-
+    transition: .3s;
 }
+.logo:hover {
+    font-size: 2.7rem;    
+}
+
 
 .navbar a {
     font-size: 1.7rem;
@@ -115,6 +119,10 @@ header {
     font-weight: 500;
     margin-left: 3.5rem;
     transition: .3s;
+}
+
+.navbar a:hover {
+    font-size: 1.9rem;    
 }
 
 .navbar a:hover,
@@ -250,7 +258,7 @@ section {
 
 .home-sci {
     position: absolute;
-    bottom: 4rem;
+    bottom: 0rem;
     width: 170px;
     display: flex;
     justify-content: space-around;
@@ -346,8 +354,7 @@ span {
 }
 
 .btn-box.btns {
-    display: inline-block;
-    width: 15rem;
+    width: 55%;
 }
 
 .perfume-categories {
@@ -370,6 +377,7 @@ span {
     margin-top: 50px; 
 }
 
+
 .perfume-category {
     width: 300px; /* Ancho inicial de cada cuadro */
     height: 300px; /* Altura inicial de cada cuadro */
@@ -381,6 +389,10 @@ span {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
+}
+.perfume-category:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .category-title {
@@ -412,10 +424,11 @@ span {
 
 
 .footer {
+    margin-bottom: 2rem;
     text-align: center;
     font-size: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     color: var(--text-color);

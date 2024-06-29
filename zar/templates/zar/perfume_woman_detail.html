@@ -1,0 +1,31 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+{{ perfume_woman.nombre }} | {{perfume_woman.inspiracion}}
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static '/perfume_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="deatil" id="detail">
+<div class="perfume-detail-container">
+    <h1>{{ perfume_woman.nombre }} | {{perfume_woman.inspiracion}}</h1>
+    <div class="perfume-images">
+        <img src="{{ perfume_woman.imagen_perfume.url }}" alt="{{ perfume_woman.nombre }}" class="perfume-image">
+        <img src="{{ perfume_woman.imagen_inspiracion.url }}" alt="{{ perfume_woman.inspiracion }}" class="inspiracion-image">
+    </div>
+    <div class="perfume-description">
+        <h2>Perfume:</h2>
+        <h1>{{ perfume_woman.nombre }}</h1>
+        <br>
+        <h3>Descripción</h3>
+        <p>{{ perfume_woman.descripcion }}</p>
+        <br>
+        <h2>Inspiración:</h2>
+        <h1>{{ perfume_woman.inspiracion }}</h1>
+    </div>
+</div>
+</section>
+{% endblock %}
