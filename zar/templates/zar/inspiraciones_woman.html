@@ -11,16 +11,17 @@ Zara Ins | Inspirations
 {% block content %}
 <section class="products" id="products">
     <div class="search-container">
-        <form method="get" action="{% url 'inspiraciones' %}">
+        <form method="get" action="{% url 'inspiraciones_woman' %}">
             <input type="text" name="search" id="search-bar" placeholder="Buscar inspiración..." value="{{ search_query|default:'' }}">
             <button type="submit"><i class='bx bx-search-alt-2'></i></button>
         </form>
     </div>
     <div class="products-container">
-        {% for perfume in inspiraciones %}
-        <a href="{% url 'perfume_detail' perfume.id %}" class="product-item">
-            <img src="{{ perfume.imagen_inspiracion.url }}" alt="{{ perfume.inspiracion }}" class="product-image">
-            <h2 class="product-name">{{ perfume.inspiracion }}</h2>
+        {% for inspiracion in inspiraciones %}
+        <a href="{% url 'perfume_woman_detail' inspiracion.id %}" class="product-item">
+        
+            <img src="{{ inspiracion.imagen_inspiracion.url }}" alt="{{ inspiracion.inspiracion }}" class="product-image">
+            <h2 class="product-name">{{ inspiracion.inspiracion }}</h2>
         </a>
         {% endfor %}
     </div>

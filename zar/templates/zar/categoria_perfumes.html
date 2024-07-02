@@ -1,0 +1,37 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+Zara Ins | Perfumes
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'categorias.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="perfume-categories" id="perfume-categories">
+    <div class="title">
+        <h2 class="heading">Buscar perfumes:</h2>
+    </div>
+    <div class="categories">
+        <a href="{% url 'perfumes' %}">
+            <div class="perfume-category" id="zara-originals">
+                <h2 class="category-title">Caballero</h2>
+            </div>
+        </a>
+        <a href="{% url 'perfumes_woman' %}">
+            <div class="perfume-category" id="zara-originals-woman">
+                <h2 class="category-title">Dama</h2>
+            </div>
+        </a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
+{% endblock %}

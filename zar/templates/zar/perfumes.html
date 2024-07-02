@@ -5,37 +5,26 @@ Zara Ins | Perfumes
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static '/productos.css' %}">
+<link rel="stylesheet" href="{% static 'productos.css' %}">
 {% endblock %}
 
 {% block content %}
 <section class="products" id="products">
-    <div class="products-title" id="products-title">
-        <h1>Perfumes Hombre</h1>
+    <div class="search-container">
+        <form method="get" action="{% url 'perfumes' %}">
+            <input type="text" name="search" id="search-bar" placeholder="Buscar perfumes..." value="{{ search_query|default:'' }}">
+            <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+        </form>
     </div>
-    <div class="products-container">
-    {% for perfume in perfumes %}
-    <a href="{% url 'perfume_detail' perfume.id %}" class="product-item">
-        <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}" class="product-image">
-        <h2 class="product-name">{{ perfume.nombre }}</h2>
-    </a>
-    {% endfor %}
-</div>
-</section>
-
-<section class="products" id="products">
-    <div class="products-title" id="products-title">
-        <h1>Perfumes Mujer</h1>
-    </div>
-    <div class="products-container">
-        {% for perfume_woman in perfumes_woman %}
-        <a href="{% url 'perfume_woman_detail' perfume_woman.id %}" class="product-item">
-            <img src="{{ perfume_woman.imagen_perfume.url }}" alt="{{ perfume_woman.nombre }}" class="product-image">
-            <h2 class="product-name">{{ perfume_woman.nombre }}</h2>
+    <div class="products-container" id="products-container">
+        {% for perfume in perfumes %}
+        <a href="{% url 'perfume_detail' perfume.id %}" class="product-item">
+            <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}" class="product-image">
+            <h2 class="product-name">{{ perfume.nombre }}</h2>
         </a>
         {% endfor %}
     </div>
-    </section>
+</section>
 <footer class="footer">
     <div class="footer-text">
         <p>Zara Inspirations | Santiago Castillo</p>

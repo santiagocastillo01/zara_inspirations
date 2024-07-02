@@ -25,7 +25,47 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.search-container {
+    margin-bottom: 20px;
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    align-items: center; /* Centra verticalmente los elementos hijos */
+}
 
+.search-container input[type="text"] {
+    padding-right: 0px;
+    padding: 6px;
+    font-size: 14px;
+    border-top:1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    margin-right: -4px;
+}
+
+.search-container button {
+    font-size: 14px;
+    padding-left: 0px;
+    padding: 6px 20px;
+    background-color:var(--bg-color);
+    color: rgb(97, 97, 97);
+    cursor: pointer;
+    border-top:1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+    position: relative; 
+    padding-top: 6px;
+}
+
+.search-container button i{
+    display: inline-block;
+    vertical-align: middle; 
+}
+.search-container button:hover {
+    background-color: var(--second-bg-color);
+    color: black;
+}
 .products-container {
     display: flex;
     flex-wrap: wrap;

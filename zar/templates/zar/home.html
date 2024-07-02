@@ -16,8 +16,8 @@
         <div class="bx bx-menu" id="menu-icon"></div>
         <nav class="navbar">
             <a href="/" class="active">Inicio</a>
-            <a href="{% url 'perfumes' %}">Perfumes</a>
-            <a href="{% url 'inspiraciones' %}">Inspiraciones</a>
+            <a href="{% url 'categoria_perfumes' %}">Perfumes</a>
+            <a href="{% url 'categoria_inspiraciones' %}">Inspiraciones</a>
             <a href="{% url 'contacto' %}">Contacto</a>
         </nav>
     </header>
@@ -38,7 +38,7 @@
     </section>
     <section class="perfume-categories" id="perfume-categories">
         <div class="title">
-            <h2 class="heading">Buscar perfumes:</h2>
+            <h2 class="heading">Buscar perfumes Caballero:</h2>
         </div>
         <div class="categories">
             <a href="{% url 'perfumes' %}">
@@ -48,6 +48,23 @@
             </a>
             <a href="{% url 'inspiraciones' %}">
                 <div class="perfume-category" id="inspirations">
+                    <h2 class="category-title">Inspirations</h2>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="perfume-categories-woman" id="perfume-categories">
+        <div class="title">
+            <h2 class="heading">Buscar perfumes Dama:</h2>
+        </div>
+        <div class="categories">
+            <a href="{% url 'perfumes_woman' %}">
+                <div class="perfume-category" id="zara-originals-woman">
+                    <h2 class="category-title">Zara Originals</h2>
+                </div>
+            </a>
+            <a href="{% url 'inspiraciones_woman' %}">
+                <div class="perfume-category" id="inspirations-woman">
                     <h2 class="category-title">Inspirations</h2>
                 </div>
             </a>

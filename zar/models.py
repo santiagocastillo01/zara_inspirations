@@ -12,6 +12,9 @@ class Perfume(models.Model):
 
     def __str__(self):
         return self.nombre
+     
+    class Meta:
+        ordering = ['nombre']
 
 class Perfume_woman(models.Model):
     imagen_perfume = models.ImageField(upload_to='perfumes_woman/', default='Error.')
@@ -22,6 +25,9 @@ class Perfume_woman(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+    class Meta:
+        ordering = ['nombre']
 
 
 class Usuario(models.Model):

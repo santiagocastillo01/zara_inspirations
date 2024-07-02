@@ -1,7 +1,7 @@
 {% extends './header.html' %}
 {% load static %}
 {% block title %}
-Zara Ins | Inspirations
+Zara Ins | Perfumes
 {% endblock %}
 
 {% block head %}
@@ -11,16 +11,17 @@ Zara Ins | Inspirations
 {% block content %}
 <section class="products" id="products">
     <div class="search-container">
-        <form method="get" action="{% url 'inspiraciones' %}">
-            <input type="text" name="search" id="search-bar" placeholder="Buscar inspiración..." value="{{ search_query|default:'' }}">
+        <form method="get" action="{% url 'perfumes_woman' %}">
+            <input type="text" name="search" id="search-bar" placeholder="Buscar perfumes..." value="{{ search_query|default:'' }}">
             <button type="submit"><i class='bx bx-search-alt-2'></i></button>
         </form>
     </div>
     <div class="products-container">
-        {% for perfume in inspiraciones %}
-        <a href="{% url 'perfume_detail' perfume.id %}" class="product-item">
-            <img src="{{ perfume.imagen_inspiracion.url }}" alt="{{ perfume.inspiracion }}" class="product-image">
-            <h2 class="product-name">{{ perfume.inspiracion }}</h2>
+        {% for perfume in perfumes %}
+        <a href="{% url 'perfume_woman_detail' perfume.id %}" class="product-item">
+        
+            <img src="{{ perfume.imagen_perfume.url }}" alt="{{ perfume.nombre }}" class="product-image">
+        <h2 class="product-name">{{ perfume.nombre }}</h2>
         </a>
         {% endfor %}
     </div>
