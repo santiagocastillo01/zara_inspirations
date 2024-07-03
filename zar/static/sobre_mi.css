@@ -141,16 +141,4 @@ body {
     font-size: 1.5rem;
 }
 
-.footer-iconTop {
-    position: absolute;
-    right: 20px;
-    top: -20px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    font-size: 1.2rem;
-    text-decoration: none;
-}
 
