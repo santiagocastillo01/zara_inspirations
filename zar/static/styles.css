@@ -196,7 +196,15 @@ section {
     font-size: 1.6rem;
     margin: 4rem 0 4rem;
 }
-
+.funcionamiento{
+    padding-right: 30rem;
+    padding-top: 30rem;
+    padding-left: 30rem;
+}
+.funcionamiento .funcionamiento-content h1{
+    font-size: 2rem;
+    text-align: center;
+}
 .btn-box {
     position: relative;
     display: flex;
@@ -435,6 +443,7 @@ span {
 
 .contact{
     background-color: #fdfbfb;
+    padding-top: 38rem;
 }
 .contact form {
     max-width: 70rem;
@@ -444,6 +453,7 @@ span {
 
 
 .footer {
+    margin-top: 1rem;
     margin-bottom: 2rem;
     text-align: center;
     font-size: 2rem;

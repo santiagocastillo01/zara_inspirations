@@ -87,9 +87,9 @@ _#. Detalles de Perfumes para Damas
    - URL: /perfume_woman/<int:perfume_id>/
    - Contenido: Muestra los detalles específicos de un perfume para damas seleccionado.
 
-_#. Página de Contacto (se modificara, para un proximo " login | register " de usuario)
-   - URL: /contacto/
-   - Contenido: Presenta un html con mi CV.
+_#. Página de Sobre Mì (se modificara, para un proximo " login | register " de usuario)
+   - URL: /sobre_mi/
+   - Contenido: Solo muestra la clase "Staff" de la base de datos
 
 
 Archivos y Configuración:

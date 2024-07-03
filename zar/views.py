@@ -3,6 +3,7 @@ from .models import *
 from django.shortcuts import render, get_object_or_404
 from .models import Perfume
 from .models import Perfume_woman
+from .models import Staff
 
 #___Home
 def home (request):
@@ -79,9 +80,10 @@ def inspiraciones_woman(request):
     }
     return render(request, 'zar/inspiraciones_woman.html', context)
 
-#__Contacto
-def contacto (request):
-    return render(request, "zar/contacto.html")
+#__Sobre_mi
+def sobre_mi(request):
+    staff = Staff.objects.first()
+    return render(request, "zar/sobre_mi.html", {'staff': staff})
 
 
 

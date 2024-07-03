@@ -1,0 +1,41 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+Zara Ins | Sobre Mí
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'sobre_mi.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-me" id="about-me">
+    <div class="about-me-container">
+        <h1>Sobre Mí</h1>
+        <div class="about-me-content">
+            <img src="{{ staff.imagen_perfil.url }}" alt="{{ staff.nombre_completo }}" class="profile-image">
+            <div class="about-me-description">
+                <h2>{{ staff.nombre_completo }}</h2>
+                <p>{{ staff.sobre_mi }}</p>
+                <p class="contact-email">Correo de contacto: <a href="mailto:{{ staff.email }}">{{ staff.email }}</a></p>
+                <div class="home-sci">
+                    {% if staff.linkedin_url %}
+                        <a href="{{ staff.linkedin_url }}"><i class="bx bxl-linkedin-square"></i></a>
+                    {% endif %}
+                    {% if staff.github_url %}
+                        <a href="{{ staff.github_url }}"><i class="bx bxl-github"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
+{% endblock %}
