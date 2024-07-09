@@ -27,9 +27,9 @@ body {
 }
 .search-container {
     margin-bottom: 20px;
-    display: flex; /* Usa flexbox para alinear elementos */
-    justify-content: center; /* Centra horizontalmente los elementos hijos */
-    align-items: center; /* Centra verticalmente los elementos hijos */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .search-container input[type="text"] {

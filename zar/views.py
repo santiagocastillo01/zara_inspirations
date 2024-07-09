@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Perfume
 from .models import Perfume_woman
 from .models import Staff
+from django.shortcuts import render, redirect
+from .forms import PerfumeForm, PerfumeWomanForm
 
 #___Home
 def home (request):
@@ -48,6 +50,17 @@ def perfume_detail(request, perfume_id):
     perfume = get_object_or_404(Perfume, pk=perfume_id)
     return render(request, 'zar/perfume_detail.html', {'perfume': perfume})
 
+def add_perfume(request):
+    if request.method == "POST":
+        form = PerfumeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = PerfumeForm()
+    return render(request, 'zar/add_perfume.html', {'form': form})
+
+
 #___Perfumes Mujer
 
 def perfumes_woman(request):
@@ -79,6 +92,16 @@ def inspiraciones_woman(request):
         'search_query': search_query,
     }
     return render(request, 'zar/inspiraciones_woman.html', context)
+
+def add_perfume_woman(request):
+    if request.method == "POST":
+        form = PerfumeWomanForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = PerfumeWomanForm()
+    return render(request, 'zar/add_perfume_woman.html', {'form': form})
 
 #__Sobre_mi
 def sobre_mi(request):

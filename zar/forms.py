@@ -1,19 +1,12 @@
-""" {% extends "entidades/index.html" %}
+from django import forms
+from .models import Perfume, Perfume_woman
 
-
-{% block titulo %}
-<h1 class="mb-5">Formulario Cursos</h1>                                
-{% endblock titulo %}
-
-
-{% block contenido %}   
-
-<form action="" method="post">
-    {% csrf_token %}
-    <table>
-        {{ form }}
-    </table>
-    <input type="submit" value="Guardar">
-</form>
-
-{% endblock contenido %} """
+class PerfumeForm(forms.ModelForm):
+    class Meta:
+        model = Perfume
+        fields = ['imagen_perfume', 'nombre', 'descripcion', 'inspiracion', 'imagen_inspiracion']
+        
+class PerfumeWomanForm(forms.ModelForm):
+    class Meta:
+        model = Perfume_woman
+        fields = ['imagen_perfume', 'nombre', 'descripcion', 'inspiracion', 'imagen_inspiracion']

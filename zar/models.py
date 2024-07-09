@@ -5,9 +5,9 @@ from django.contrib.auth.hashers import make_password, check_password
 
 class Perfume(models.Model):
     imagen_perfume = models.ImageField(upload_to='perfumes/', default='Error.')
-    nombre = models.CharField(max_length=100, default='Nombre no disponible')
-    descripcion = models.TextField(default='Descripción no disponible')
-    inspiracion = models.CharField(max_length=100, default='Nombre no disponible')
+    nombre = models.CharField(max_length=100, default='Nombre de perfume')
+    descripcion = models.TextField(default='Descripción')
+    inspiracion = models.CharField(max_length=100, default='Nombre Inspiracion')
     imagen_inspiracion = models.ImageField(upload_to='inspiraciones/', default='Error.')
 
     def __str__(self):
@@ -18,9 +18,9 @@ class Perfume(models.Model):
 
 class Perfume_woman(models.Model):
     imagen_perfume = models.ImageField(upload_to='perfumes_woman/', default='Error.')
-    nombre = models.CharField(max_length=100, default='Nombre no disponible')
-    descripcion = models.TextField(default='Descripción no disponible')
-    inspiracion = models.CharField(max_length=100, default='Nombre no disponible')
+    nombre = models.CharField(max_length=100, default='Nombre de perfume')
+    descripcion = models.TextField(default='Descripción')
+    inspiracion = models.CharField(max_length=100, default='Nombre Inspiracion')
     imagen_inspiracion = models.ImageField(upload_to='inspiraciones_woman/', default='Error.')
 
     def __str__(self):
