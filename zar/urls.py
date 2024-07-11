@@ -17,6 +17,8 @@ urlpatterns = [
     path('perfume_woman/<int:perfume_id>/', views.perfume_woman_detail, name='perfume_woman_detail'),
     path('add_perfume/',add_perfume, name='add_perfume'),
     path('add_perfume_woman/', add_perfume_woman, name='add_perfume_woman'),
+    
+    path('login/', views.login, name="login"),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,47 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+{% block content %}
+<body>
+    
+    <div id="contenedor">
+        
+        <div id="contenedorcentrado">
+            <div id="login">
+                <form id="loginform">
+                    <label for="usuario">Usuario</label>
+                    <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
+                    
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" placeholder="Contraseña" name="password" required>
+                    
+                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                </form>
+                
+            </div>
+            <div id="derecho">
+                <div class="titulo">
+                    Bienvenido a Zara Inspirations!
+                </div>
+                <hr>
+                <div class="pie-form">
+                    <a href="#">¿No tienes Cuenta? Registrate</a>
+                    <hr>
+                    <a href="{% url 'home' %}">« Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+{% endblock %}
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>

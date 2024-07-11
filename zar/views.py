@@ -109,4 +109,5 @@ def sobre_mi(request):
     return render(request, "zar/sobre_mi.html", {'staff': staff})
 
 
-
+def login(request):
+    return render(request, "zar/login.html")
