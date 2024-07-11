@@ -1,0 +1,29 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+Zara Ins | Registrate
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'sobre_mi.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-me" id="about-me">
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Registrarse">
+    </form>
+</section>
+
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
+{% endblock %}

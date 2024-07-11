@@ -1,11 +1,24 @@
 from django.shortcuts import render
-from .models import *
 from django.shortcuts import render, get_object_or_404
-from .models import Perfume
-from .models import Perfume_woman
-from .models import Staff
 from django.shortcuts import render, redirect
-from .forms import PerfumeForm, PerfumeWomanForm
+from django.urls import reverse_lazy
+
+
+from .models import *
+from .forms import *
+
+
+from django.views.generic import ListView
+from django.views.generic import CreateView
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
+
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import PasswordChangeView
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 #___Home
 def home (request):
@@ -109,5 +122,47 @@ def sobre_mi(request):
     return render(request, "zar/sobre_mi.html", {'staff': staff})
 
 
-def login(request):
-    return render(request, "zar/login.html")
+# ___ Login / Logout / Registration
+
+def loginRequest(request):
+    if request.method == "POST":
+        usuario = request.POST["username"]
+        clave = request.POST["password"]
+        user = authenticate(request, username=usuario, password=clave)
+        if user is not None:
+            login(request, user)
+
+            #_______ Buscar Avatar
+            try:
+                avatar = Avatar.objects.get(user=request.user.id).imagen.url
+            except:
+                avatar = "/media/avatares/default.png"
+            finally:
+                request.session["avatar"] = avatar
+            #______________________________________________________________
+            return render(request, "zar/home.html")
+        else:
+            return redirect(reverse_lazy('login'))
+
+    else:
+        miForm = AuthenticationForm()
+
+    return render(request, "zar/login.html", {"form": miForm})
+
+def perfil(request):
+    return render(request, "zar/perfil.html")
+
+def register(request):
+    if request.method == "POST":
+        miForm = RegistroForm(request.POST)
+        if miForm.is_valid():
+            #usuario = miForm.cleaned_data.get("username")
+            miForm.save()
+            return redirect(reverse_lazy('home'))
+    else:
+        miForm = RegistroForm()
+
+    return render(request, "zar/register.html", {"form": miForm})
+
+def edit_perfil(request):
+    return render(request, "zar/edit_perfil.html")

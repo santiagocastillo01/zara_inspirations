@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import add_perfume, add_perfume_woman
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -18,7 +19,12 @@ urlpatterns = [
     path('add_perfume/',add_perfume, name='add_perfume'),
     path('add_perfume_woman/', add_perfume_woman, name='add_perfume_woman'),
     
-    path('login/', views.login, name="login"),
+    path('login/', views.loginRequest, name="login"),
+    path('register/',views.register, name="register"),
+    path('logout/', LogoutView.as_view(template_name="zar/logout.html"), name="logout"),
+    path('perfil/', views.perfil, name="perfil"),
+    path('edit_perfil/',views.edit_perfil, name="edit_perfil")
+    
 ]
 
 if settings.DEBUG:

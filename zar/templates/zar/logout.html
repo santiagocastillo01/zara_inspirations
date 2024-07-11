@@ -1,0 +1,24 @@
+{% extends './header.html' %}
+{% load static %}
+{% block title %}
+Zara Ins | Logout
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'sobre_mi.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+<footer class="footer">
+    <div class="footer-text">
+        <p>Zara Inspirations | Santiago Castillo</p>
+    </div>
+    <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
+    <div class="footer-iconTop"></div>
+</footer>
+{% endblock %}
