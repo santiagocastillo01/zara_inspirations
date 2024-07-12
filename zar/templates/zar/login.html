@@ -14,12 +14,10 @@ Zara Ins | Login
         
         <div id="contenedorcentrado">
             <div id="login">
-                <form action="" method="post">
+                <form method="post">
                     {% csrf_token %}
-                    <table>
-                        {{ form.as_table }}
-                    </table>
-                    <input type="submit" value="Login">
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
                 </form>
                 
             </div>

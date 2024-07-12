@@ -19,6 +19,7 @@ from django.contrib.auth.views import PasswordChangeView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 #___Home
 def home (request):
@@ -126,43 +127,43 @@ def sobre_mi(request):
 
 def loginRequest(request):
     if request.method == "POST":
-        usuario = request.POST["username"]
-        clave = request.POST["password"]
-        user = authenticate(request, username=usuario, password=clave)
-        if user is not None:
-            login(request, user)
-
-            #_______ Buscar Avatar
-            try:
-                avatar = Avatar.objects.get(user=request.user.id).imagen.url
-            except:
-                avatar = "/media/avatares/default.png"
-            finally:
-                request.session["avatar"] = avatar
-            #______________________________________________________________
-            return render(request, "zar/home.html")
-        else:
-            return redirect(reverse_lazy('login'))
-
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)  # Ajuste aquí
+            if user is not None:
+                login(request, user)
+                return redirect('perfil')  # Redirige a la vista de perfil después de iniciar sesión
+        # Renderiza el formulario con errores si no es válido
+        return render(request, 'zar/login.html', {'form': form})
     else:
-        miForm = AuthenticationForm()
+        form = AuthenticationForm()
+        return render(request, 'zar/login.html', {'form': form})
 
-    return render(request, "zar/login.html", {"form": miForm})
 
+@login_required
 def perfil(request):
-    return render(request, "zar/perfil.html")
+    return render(request, 'zar/perfil_detail.html', {"user": request.user})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 def register(request):
     if request.method == "POST":
-        miForm = RegistroForm(request.POST)
+        miForm = RegistroForm(request.POST, request.FILES)
         if miForm.is_valid():
-            #usuario = miForm.cleaned_data.get("username")
-            miForm.save()
-            return redirect(reverse_lazy('home'))
+            user = miForm.save(commit=False)
+            user.set_password(miForm.cleaned_data["password1"])
+            user.save()
+            login(request, user)
+            return redirect('perfil')  # Redirige a la vista de perfil después de registrarse
+        # Renderiza el formulario con errores si no es válido
+        return render(request, "zar/register.html", {"form": miForm})
     else:
         miForm = RegistroForm()
+        return render(request, "zar/register.html", {"form": miForm})
 
-    return render(request, "zar/register.html", {"form": miForm})
-
-def edit_perfil(request):
-    return render(request, "zar/edit_perfil.html")
+print(loginRequest)
+print(register)

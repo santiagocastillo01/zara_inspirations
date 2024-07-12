@@ -10,7 +10,10 @@ Zara Ins | Perfil
 
 {% block content %}
 <section class="about-me" id="about-me">
-   <h1>perfil</h1>
+    <h1>Bienvenido, {{ user }}!</h1>
+    <h2>Email: {{ user.email }}</h2>
+    <img src="{{ user.imagen_usuario.url }}" alt="Imagen de perfil">
+    <a href="{% url 'logout' %}">Cerrar sesión</a>
 </section>
 
 <footer class="footer">
