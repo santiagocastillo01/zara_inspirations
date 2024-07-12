@@ -5,15 +5,58 @@ Zara Ins | Perfil
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'sobre_mi.css' %}">
+<link rel="stylesheet" href="{% static 'login.css' %}">
 {% endblock %}
 
 {% block content %}
+<body>
+    
+    <div id="contenedor">
+        
+        <div id="contenedorcentrado">
+            <div id="login">
+                
+                <h2>Email: {{ user.email }}</h2>
+                <a href="{% url 'logout' %}"><button type="submit">Cerrar sesión</button></a>
+                
+                
+            </div>
+            <div id="derecho">
+                <div class="titulo">
+                    <h1>Bienvenido/a, {{ user }}!</h1>
+                </div>
+                <div class="pie-form">
+                    <hr>
+                    <a href="{% url 'home' %}">« Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="about-me" id="about-me">
     <h1>Bienvenido, {{ user }}!</h1>
     <h2>Email: {{ user.email }}</h2>
-    <img src="{{ user.imagen_usuario.url }}" alt="Imagen de perfil">
-    <a href="{% url 'logout' %}">Cerrar sesión</a>
+
+    <button><a href="{% url 'logout' %}">Cerrar sesión</a></button>
 </section>
 
 <footer class="footer">
