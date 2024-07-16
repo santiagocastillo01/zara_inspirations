@@ -16,6 +16,7 @@ Zara Ins | Perfil
         <div id="contenedorcentrado">
             <div id="login">
                 
+                <h2>Usuario: {{ user }}</h2>
                 <h2>Email: {{ user.email }}</h2>
                 <a href="{% url 'logout' %}"><button type="submit">Cerrar sesión</button></a>
                 
@@ -26,38 +27,39 @@ Zara Ins | Perfil
                     <h1>Bienvenido/a, {{ user }}!</h1>
                 </div>
                 <div class="pie-form">
+                    {% if user.is_superuser %}<p>Perfil Administrador</p>{% endif %}
                     <hr>
                     <a href="{% url 'home' %}">« Volver</a>
                 </div>
             </div>
         </div>
-    </div>
     
+    </div>
+    {% if user.is_superuser %}
+    <div id="contenedor-admin">
+        
+        <div id="contenedorcentrado-admin">
+            <div id="izquierdo-admin">
+                <h1>Agregar Perfume:</h1>
+                <a href="{% url 'add_perfume' %}"><button>Caballero</button></a>
+                <a href="{% url 'add_perfume_woman' %}"><button>Dama</button></a>
+            
+            </div>
+            
+            <div id="derecho-admin">
+                <div class="titulo-admin">
+                    <h1>Panel Administradores</h1>
+                </div>
+                <h2>Hola!,{{ user }}, este panel ofrece la opción de agregar perfumes al catálogo, tanto de dama como de caballero. Podrás ingresar el perfume con su descripción, nombre e imagen, tanto del perfume original como de la imitación del mismo.</h2>   
+                <hr>
+                <h2>Tambien vas a poder eliminar y editar perfumes, en el detalle de cada perfume vas a encontrar un boton para poder "EDITAR" y "ELIMINAR"</h2>    
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="about-me" id="about-me">
-    <h1>Bienvenido, {{ user }}!</h1>
-    <h2>Email: {{ user.email }}</h2>
-
-    <button><a href="{% url 'logout' %}">Cerrar sesión</a></button>
-</section>
 
 <footer class="footer">
     <div class="footer-text">

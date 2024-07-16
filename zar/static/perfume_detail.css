@@ -111,3 +111,45 @@ body {
     font-size: 1.2rem;
     text-decoration: none;
 }
+
+button {
+    color:black;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    background-color: white;
+    
+    margin-top: 10px;
+    transition: background-color 1s
+}
+
+button:hover {
+    background-color: black;
+    color:white;
+}
+
+#delete {
+    color:black;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    background-color: var(--second-bg-color);
+    
+    margin-top: 10px;
+    transition: background-color 1s
+}
+
+#delete:hover {
+    background-color: rgb(131, 50, 50);
+    color:white;
+}

@@ -26,6 +26,10 @@
         <h2>Inspiración:</h2>
         <h1>{{ perfume.inspiracion }}</h1>
     </div>
+{% if user.is_superuser %}
+    <a href="{% url 'home' %}"><button>Editar</button></a>
+    <a href="{% url 'home' %}"><button id="delete">Eliminar</button></a>
+    {% endif %}
 </div>
 </section>
 {% endblock %}

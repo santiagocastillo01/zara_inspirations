@@ -62,7 +62,8 @@ body {
 
 .form-container form input[type="text"],
 .form-container form input[type="email"],
-.form-container form input[type="file"] {
+.form-container form input[type="file"],
+.form-container form input[type="password"] {
     font-size: 1.2rem;
     padding: 8px;
     margin-bottom: 15px;
@@ -73,7 +74,8 @@ body {
 }
 .form-container form input[type="text"]:hover,
 .form-container form input[type="email"]:hover,
-.form-container form input[type="file"]:hover {
+.form-container form input[type="file"]:hover,
+.form-container form input[type="password"]:hover {
     transform: scale(1.0);
     border: 1px solid #000000;
 }
@@ -95,17 +97,22 @@ body {
 }
 
 .form-container form button {
-    background-color: rgb(184, 182, 182);
-    color: rgb(255, 255, 255);
-    border-radius: 4px solid black;
-    padding: 10px 20px;
-    font-size: 1rem;
+    color:black;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
     cursor: pointer;
-    transition: background-color 1.3s, transform 1.3s;
+    background-color: white;
+    
+    margin-top: 10px;
+    transition: background-color 1s
 }
 
 .form-container form button:hover {
     background-color: black;
-    transform: scale(1.0);
     color:white;
 }

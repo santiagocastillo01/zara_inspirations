@@ -17,8 +17,7 @@ class PerfumeWomanForm(forms.ModelForm):
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    imagen_usuario = forms.ImageField(required=True)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'imagen_usuario', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
