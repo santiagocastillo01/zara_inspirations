@@ -77,7 +77,9 @@
     box-sizing: border-box;
     
 }
-
+#ejemplo_img{
+    width: 45rem;
+}
 #login label {
     display: block;
     font-size: 1.6rem;
@@ -224,7 +226,7 @@ hr {
 
 
 #contenedor-admin {
-    margin-top: -25%;
+    margin-top: -15%;
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -379,7 +381,7 @@ hr {
 
 /* ajustar a pantallas con ancho menor o igual a 775px; */
 /* ajustar a pantallas con ancho menor o igual a 775px; */
-@media all and (max-width: 775px)
+@media all and (max-width: 914px)
 {
     #contenedorcentrado-admin {
         flex-direction:column-reverse;

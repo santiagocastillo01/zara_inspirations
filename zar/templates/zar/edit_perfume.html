@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block title %}
-Zaro Ins | Agregar perfume Dama
+Zaro Ins | Editar perfume Caballero
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'form.css' %}">
+<link rel="stylesheet" href="{% static 'edit_form.css' %}">
 {% endblock %}
 
 {% block content %}
+
 <div class="form-container">
-    <h2>Agregar Perfume Dama</h2>
+        <h2>Editar Perfume</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Agregar Perfume</button>
+        <button type="submit">Guardar</button>
+        <a href="{% url 'perfume_detail' perfume.id %}"class="cancel-button">Cancelar</a>
     </form>
 </div>
 {% endblock %}

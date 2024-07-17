@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Cormorant Garamond", serif;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    margin-top:20vh;
+}
+
+.form-container h2 {
+    color: black;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form p {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-container form label {
+    font-size: 1.4rem;
+    color: black;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="email"],
+.form-container form input[type="file"],
+.form-container form input[type="password"] {
+    font-size: 1.2rem;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: calc(100% - 16px);
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    transition: transform 0.3s;  
+}
+.form-container form input[type="text"]:hover,
+.form-container form input[type="email"]:hover,
+.form-container form input[type="file"]:hover,
+.form-container form input[type="password"]:hover {
+    transform: scale(1.0);
+    border: 1px solid #000000;
+}
+
+.form-container form textarea {
+    font-size: 1.2rem;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: calc(100% - 16px);
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    resize: none;  
+    height: 150px;
+    transition: transform 0.3s; 
+}
+.form-container form textarea:hover {
+    transform: scale(1.0);
+    border: 1px solid #000000;
+}
+
+.form-container form button,
+.form-container form .cancel-button{
+    color:black;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    background-color: white;
+    
+    margin-top: 10px;
+    transition: background-color 1s
+}
+
+.form-container form button:hover,
+.form-container form .cancel-button:hover {
+    background-color: black;
+    color:white;
+}
+
+.form-container form .cancel-button{
+    font-size: 1.4rem;
+    padding-top: 1.1rem;
+}

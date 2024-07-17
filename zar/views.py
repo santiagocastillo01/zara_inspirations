@@ -74,6 +74,23 @@ def add_perfume(request):
         form = PerfumeForm()
     return render(request, 'zar/add_perfume.html', {'form': form})
 
+def edit_perfume(request, perfume_id):
+    perfume = get_object_or_404(Perfume, pk=perfume_id)
+    if request.method == 'POST':
+        form = PerfumeForm(request.POST, request.FILES, instance=perfume)
+        if form.is_valid():
+            form.save()
+            return redirect('perfume_detail', perfume_id=perfume.id)
+    else:
+        form = PerfumeForm(instance=perfume)
+    return render(request, 'zar/edit_perfume.html', {'form': form, 'perfume': perfume})
+
+def delete_perfume(request, perfume_id):
+    perfume = get_object_or_404(Perfume, pk=perfume_id)
+    if request.method == 'POST':
+        perfume.delete()
+        return redirect('perfumes') 
+    return render(request, 'zar/delete_perfume.html', {'perfume': perfume})
 
 #___Perfumes Mujer
 
@@ -117,6 +134,23 @@ def add_perfume_woman(request):
         form = PerfumeWomanForm()
     return render(request, 'zar/add_perfume_woman.html', {'form': form})
 
+def edit_perfume_woman(request, perfume_id):
+    perfume = get_object_or_404(Perfume_woman, pk=perfume_id)
+    if request.method == 'POST':
+        form = PerfumeWomanForm(request.POST, request.FILES, instance=perfume)
+        if form.is_valid():
+            form.save()
+            return redirect('perfume_woman_detail', perfume_id=perfume.id)
+    else:
+        form = PerfumeWomanForm(instance=perfume)
+    return render(request, 'zar/edit_perfume_woman.html', {'form': form, 'perfume': perfume})
+
+def delete_perfume_woman(request, perfume_id):
+    perfume = get_object_or_404(Perfume_woman, pk=perfume_id)
+    if request.method == 'POST':
+        perfume.delete()
+        return redirect('perfumes_woman') 
+    return render(request, 'zar/delete_perfume_woman.html', {'perfume': perfume})
 #__Sobre_mi
 def sobre_mi(request):
     staff = Staff.objects.first()
@@ -164,6 +198,3 @@ def register(request):
     else:
         miForm = RegistroForm()
         return render(request, "zar/register.html", {"form": miForm})
-
-print(loginRequest)
-print(register)

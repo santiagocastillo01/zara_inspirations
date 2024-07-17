@@ -1,7 +1,7 @@
 {% extends './header.html' %}
 {% load static %}
 {% block title %}
-Zara Ins | Perfil
+Zaro Ins | Perfil
 {% endblock %}
 
 {% block head %}
@@ -27,11 +27,12 @@ Zara Ins | Perfil
                     <h1>Bienvenido/a, {{ user }}!</h1>
                 </div>
                 <div class="pie-form">
-                    {% if user.is_superuser %}<p>Perfil Administrador</p>{% endif %}
+                    {% if user.is_superuser %}<h2>Perfil Administrador</h2>{% endif %}
                     <hr>
                     <a href="{% url 'home' %}">« Volver</a>
                 </div>
             </div>
+        
         </div>
     
     </div>
@@ -50,9 +51,11 @@ Zara Ins | Perfil
                 <div class="titulo-admin">
                     <h1>Panel Administradores</h1>
                 </div>
-                <h2>Hola!,{{ user }}, este panel ofrece la opción de agregar perfumes al catálogo, tanto de dama como de caballero. Podrás ingresar el perfume con su descripción, nombre e imagen, tanto del perfume original como de la imitación del mismo.</h2>   
                 <hr>
+                <h2>Hola! {{ user }}, este panel ofrece la opción de agregar perfumes al catálogo, tanto de dama como de caballero. Podrás ingresar el perfume con su descripción, nombre e imagen, tanto del perfume original como de la imitación del mismo.</h2>   
+                <br>
                 <h2>Tambien vas a poder eliminar y editar perfumes, en el detalle de cada perfume vas a encontrar un boton para poder "EDITAR" y "ELIMINAR"</h2>    
+                <img src="../static/img/ejemplo_admin.png" alt="Referencia botones editar y eliminar" id="ejemplo_img">
             </div>
             </div>
         </div>
@@ -63,7 +66,7 @@ Zara Ins | Perfil
 
 <footer class="footer">
     <div class="footer-text">
-        <p>Zara Inspirations | Santiago Castillo</p>
+        <p>Zaro Inspirations | Santiago Castillo</p>
     </div>
     <a href="#"><box-icon name='up-arrow-alt'></box-icon></a>
     <div class="footer-iconTop"></div>

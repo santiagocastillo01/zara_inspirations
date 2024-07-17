@@ -1,0 +1,23 @@
+{% extends './header.html' %}
+{% load static %}
+
+{% block title %}
+Zaro Ins | Eliminar perfume Dama
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'delete_perfume.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+        <h1>Eliminar Perfume</h1>
+        <h2>¿Estás seguro de que deseas eliminar el perfume " {{ perfume.nombre }} "?</h2>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar</button>
+            <a href="{% url 'perfume_woman_detail' perfume.id %}" class="cancel-button">Cancelar</a>
+        </form>
+</div>
+{% endblock %}
