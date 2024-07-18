@@ -55,8 +55,61 @@
     padding: 30px;
     box-sizing: border-box;
 }
+#user_img{
+    width: 15rem;
+    transition: transform 0.3s;  
+    mask-image: linear-gradient(
+        white 90%,
+        transparent
+    );
+}
+
+#user_img:hover{
+    transform: scale(1.05);
+}
+#button-subir{
+    margin-bottom: 4px;
+    color:black;
+    width: 25%;
+    height: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    background-color: var(--second-bg-color);
+    
+    margin-top: 10px;
+    transition: background-color 1s
+}
+
+#button-subir:hover{
+    background-color:black;
+    color:white;}
 
 
+#button-elimninar{
+    margin-bottom: 4px;
+    color:black;
+    width: 25%;
+    height: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    background-color: var(--second-bg-color);
+    
+    margin-top: 10px;
+    transition: background-color 1s
+}
+
+#button-elimninar:hover{
+    background-color: rgb(131, 50, 50);
+    color:white;
+}
 /* formulario de login */
 /* formulario de login */
 #login {
@@ -226,7 +279,7 @@ hr {
 
 
 #contenedor-admin {
-    margin-top: -15%;
+    margin-top: -5%;
     margin-bottom: 0;
     display: flex;
     align-items: center;
@@ -417,5 +470,8 @@ hr {
     
     #izquierdo-admin label {
         text-align: left;
+    }
+    #ejemplo_img{
+        width: 35rem;
     }
 }

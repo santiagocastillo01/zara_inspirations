@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import add_perfume, add_perfume_woman
+from .views import add_perfume, add_perfume_woman, edit_profile, change_password
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -32,15 +32,14 @@ urlpatterns = [
     
     
     
-    
-    
-    
-    
     path("login/", views.loginRequest, name="login"),
     path("logout/", views.logout_view, name="logout"),
     path("register/", views.register, name="register"),
-    path("perfil/", views.perfil, name="perfil")
-    
+    path("perfil/", views.perfil, name="perfil"),
+    path('subir-avatar/', views.upload_avatar, name='upload_avatar'),
+    path('eliminar-avatar/', views.delete_avatar, name='delete_avatar'),
+    path('perfil/editar/', edit_profile, name='edit_profile'),
+    path('perfil/cambiar_contraseña/', change_password, name='change_password'),
     
 ]
 

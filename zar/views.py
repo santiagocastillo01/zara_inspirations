@@ -20,6 +20,12 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+from .forms import UserEditForm, PasswordChangingForm
+from .models import Avatar
+from django.contrib.auth.models import User
+from .forms import AvatarForm 
 
 #___Home
 def home (request):
@@ -178,7 +184,41 @@ def loginRequest(request):
 
 @login_required
 def perfil(request):
-    return render(request, 'zar/perfil_detail.html', {"user": request.user})
+    user = request.user
+    avatar = Avatar.objects.filter(user=user).first()
+
+    context = {
+        "user": user,
+        "avatar": avatar,
+    }
+    return render(request, 'zar/perfil_detail.html', context)
+
+def upload_avatar(request):
+    if request.method == 'POST':
+        form = AvatarForm(request.POST, request.FILES)
+        if form.is_valid():
+            avatar = form.save(commit=False)
+            avatar.user = request.user
+            avatar.save()
+            messages.success(request, '¡Avatar subido correctamente!')
+            return redirect('perfil')
+        else:
+            messages.error(request, 'Hubo un error al subir el avatar. Por favor, corrige los errores.')
+    else:
+        form = AvatarForm()
+    
+    return render(request, 'zar/subir_avatar.html', {'form': form})
+
+def delete_avatar(request):
+    if request.method == 'POST':
+        user = request.user
+        avatar = Avatar.objects.filter(user=user).first()
+        if avatar:
+            avatar.delete()
+            messages.success(request, '¡Avatar eliminado correctamente!')
+        else:
+            messages.error(request, 'No tienes un avatar configurado.')
+    return redirect('perfil')
 
 def logout_view(request):
     logout(request)
@@ -198,3 +238,32 @@ def register(request):
     else:
         miForm = RegistroForm()
         return render(request, "zar/register.html", {"form": miForm})
+    
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(request.POST, instance=request.user)
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(request, '¡Tu perfil ha sido actualizado con éxito!')
+            return redirect('perfil')
+    else:
+        user_form = UserEditForm(instance=request.user)
+    
+    return render(request, 'zar/edit_profile.html', {'user_form': user_form})
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangingForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, '¡Tu contraseña ha sido cambiada con éxito!')
+            return redirect('perfil')
+        else:
+            messages.error(request, 'Por favor corrige el error a continuación.')
+    else:
+        form = PasswordChangingForm(user=request.user)
+    
+    return render(request, 'zar/change_password.html', {'form': form})

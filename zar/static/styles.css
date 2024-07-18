@@ -101,7 +101,18 @@ header {
     align-items: center;
     z-index: 100;
 }
+.navbar #user_img{
+    width: 4rem;
+    transition: transform 0.3s;  
+    mask-image: linear-gradient(
+        white 90%,
+        transparent
+    );
+}
 
+.navbar #user_img:hover{
+    transform: scale(1.05);
+}
 .logo {
     font-size: 2.5rem;
     color: var(--text-color);

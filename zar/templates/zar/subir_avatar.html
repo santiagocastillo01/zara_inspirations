@@ -1,0 +1,22 @@
+{% extends './header.html' %}
+{% load static %}
+
+{% block title %}
+Zaro Ins | Editar perfil
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'edit_form.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>Subir Avatar</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Subir</button>
+    </form>
+</div>
+{% endblock %}

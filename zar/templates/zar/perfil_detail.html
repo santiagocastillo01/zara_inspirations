@@ -18,6 +18,8 @@ Zaro Ins | Perfil
                 
                 <h2>Usuario: {{ user }}</h2>
                 <h2>Email: {{ user.email }}</h2>
+                <a href="{% url 'edit_profile' %}"><button type="button">Editar Perfil</button></a>
+                <a href="{% url 'change_password' %}"><button type="button">Cambiar Contraseña</button></a>
                 <a href="{% url 'logout' %}"><button type="submit">Cerrar sesión</button></a>
                 
                 
@@ -27,7 +29,25 @@ Zaro Ins | Perfil
                     <h1>Bienvenido/a, {{ user }}!</h1>
                 </div>
                 <div class="pie-form">
-                    {% if user.is_superuser %}<h2>Perfil Administrador</h2>{% endif %}
+                    {% if user.is_superuser %}
+                        <h2>Perfil Administrador</h2>
+                    {% endif %}
+                    
+                    {% if avatar %}
+                        <img src="{{ avatar.imagen.url }}" id="user_img" alt="Avatar de {{ user.username }}" >
+                        <form method="post" action="{% url 'delete_avatar' %}">
+                            {% csrf_token %}
+                            <button type="submit" id="button-elimninar">Eliminar Avatar</button>
+                        </form>
+                    {% else %}
+                        <p>No tienes un avatar configurado.</p>
+                        <form method="post" enctype="multipart/form-data"  action="{% url 'upload_avatar' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" id="button-subir">Subir Avatar</button>
+                        </form>
+                    {% endif %}
+                    
                     <hr>
                     <a href="{% url 'home' %}">« Volver</a>
                 </div>

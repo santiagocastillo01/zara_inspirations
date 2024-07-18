@@ -29,8 +29,13 @@ Instalación:
 
 Informaciòn:
 1. SuperUser para .../admin:
-    USER : admin
-    PASSWORD: 1111
+    USER : administrador
+    PASSWORD: 1234
+
+2. Usuario ejemplo:
+    USER : juan
+    PASSWORD: ejemplonoadmin
+   (este usuario no cuenta con "foto de perfil", se le puede agregar)
 
 
 Estructura del Proyecto:
