@@ -1,11 +1,14 @@
 Zara Inspirations
 
 
-Descripción:
-Este es un proyecto de Django que permite a los usuarios buscar y explorar 
+# Descripción:
+Este es un proyecto de Django que permite a los usuarios buscar y explorar
 perfumes y sus inspiraciones. El proyecto incluye funcionalidades para listar 
-perfumes, filtrar por nombre, y ver detalles específicos de cada perfume e inspiración.
-(proximamente se agregara un CRUD para los productos.)
+perfumes, filtrar por nombre, y ver detalles específicos de cada perfume e 
+inspiración. Solo los usuarios administradores tienen permisos
+para agregar, editar y eliminar perfumes.
+
+
 
 
 Requisitos:
@@ -33,8 +36,8 @@ Informaciòn:
     PASSWORD: 1234
 
 2. Usuario ejemplo:
-    USER : juan
-    PASSWORD: ejemplonoadmin
+    USER : pedrito
+    PASSWORD: santiagocastillo
    (este usuario no cuenta con "foto de perfil", se le puede agregar)
 
 
@@ -44,66 +47,121 @@ Estructura del Proyecto:
 - static/: Contiene los archivos estáticos, como CSS e imágenes.
 
 
-Funcionalidades y Cómo Probarlas:
-_#. Página de Inicio
-   - URL: /
-   - Contenido: Presenta la introducción al proyecto y enlaces a las categorías de inspiraciones y perfumes, con header funcional
+# Funcionalidades y Cómo Probarlas:
 
-_#. Categoría de Inspiraciones
-   - URL: /categoria_inspiraciones/
-   - Contenido: Muestra un html previo para elegir que inspiraciones buscar, de dama o caballero.
+1. **Página de Inicio**
+   - **URL:** /
+   - **Contenido:** Presenta la introducción al proyecto y enlaces a las categorías de inspiraciones y perfumes, con header funcional.
 
-_#. Categoría de Perfumes
-   - URL: /categoria_perfumes/
-   - Contenido: Muestra un html previo para elegir que perfumes buscar, de dama o caballero.
+2. **Categoría de Inspiraciones**
+   - **URL:** /categoria_inspiraciones/
+   - **Contenido:** Muestra un HTML previo para elegir qué inspiraciones buscar, de dama o caballero.
 
-_#. Lista de Inspiraciones Caballero
-   - URL: /inspiraciones/
-   - Contenido: Lista todas las inspiraciones de caballero disponibles con una barra de búsqueda para filtrar las inspiraciones por nombre.
-   - Instrucciones para probar: Utiliza la barra de búsqueda para filtrar las inspiraciones.
+3. **Categoría de Perfumes**
+   - **URL:** /categoria_perfumes/
+   - **Contenido:** Muestra un HTML previo para elegir qué perfumes buscar, de dama o caballero.
 
-_#. Detalles de Inspiraciones Caballero
-   - URL: /perfume_detail/<int:perfume_id>/
-   - Contenido: Muestra los detalles específicos de una inspiración para caballero seleccionada.
+4. **Lista de Inspiraciones Caballero**
+   - **URL:** /inspiraciones/
+   - **Contenido:** Lista todas las inspiraciones de caballero disponibles con una barra de búsqueda para filtrar las inspiraciones por nombre.
+   - **Instrucciones para probar:** Utiliza la barra de búsqueda para filtrar las inspiraciones.
 
-_#. Lista de Perfumes Caballero
-   - URL: /perfumes/
-   - Contenido: Lista todos los perfumes de caballero disponibles con una barra de búsqueda para filtrar los perfumes por nombre.
-   - Instrucciones para probar: Utiliza la barra de búsqueda para filtrar los perfumes.
+5. **Detalles de Inspiraciones Caballero**
+   - **URL:** /perfume_detail/<int:perfume_id>/
+   - **Contenido:** Muestra los detalles específicos de una inspiración para caballero seleccionada.
 
-_#. Detalles de Perfumes Caballero
-   - URL: /perfumes/<int:perfume_id>/
-   - Contenido: Muestra los detalles específicos de un perfume para caballero seleccionado.
+6. **Lista de Perfumes Caballero**
+   - **URL:** /perfumes/
+   - **Contenido:** Lista todos los perfumes de caballero disponibles con una barra de búsqueda para filtrar los perfumes por nombre.
+   - **Instrucciones para probar:** Utiliza la barra de búsqueda para filtrar los perfumes.
 
-_#. Lista de Inspiraciones Dama
-   - URL: /inspiraciones_woman/
-   - Contenido: Lista todas las inspiraciones para dama disponibles con una barra de búsqueda para filtrar las inspiraciones por nombre.
-   - Instrucciones para probar: Utiliza la barra de búsqueda para filtrar las inspiraciones.
+7. **Detalles de Perfumes Caballero**
+   - **URL:** /perfumes/<int:perfume_id>/
+   - **Contenido:** Muestra los detalles específicos de un perfume para caballero seleccionado.
 
-_#. Detalles de Inspiraciones Dama
-   - URL: /perfume_woman_detail/<int:perfume_id>/
-   - Contenido: Muestra los detalles específicos de una inspiración para dama seleccionada.
+8. **Lista de Inspiraciones Dama**
+   - **URL:** /inspiraciones_woman/
+   - **Contenido:** Lista todas las inspiraciones para dama disponibles con una barra de búsqueda para filtrar las inspiraciones por nombre.
+   - **Instrucciones para probar:** Utiliza la barra de búsqueda para filtrar las inspiraciones.
 
-_#. Lista de Perfumes para Damas
-   - URL: /perfumes_woman/
-   - Contenido: Lista todos los perfumes para damas disponibles.
+9. **Detalles de Inspiraciones Dama**
+   - **URL:** /perfume_woman_detail/<int:perfume_id>/
+   - **Contenido:** Muestra los detalles específicos de una inspiración para dama seleccionada.
 
-_#. Detalles de Perfumes para Damas
-   - URL: /perfume_woman/<int:perfume_id>/
-   - Contenido: Muestra los detalles específicos de un perfume para damas seleccionado.
+10. **Lista de Perfumes para Damas**
+    - **URL:** /perfumes_woman/
+    - **Contenido:** Lista todos los perfumes para damas disponibles.
 
-_#. Página para agregar perfume de Caballero
-   - URL: add_perfume
-   - Contenido: Formulario para agregar perfume de caballero en la base de datos
+11. **Detalles de Perfumes para Damas**
+    - **URL:** /perfume_woman/<int:perfume_id>/
+    - **Contenido:** Muestra los detalles específicos de un perfume para damas seleccionado.
 
-_#. Página para agregar perfume de Dama
-   - URL: add_perfume_woman
-   - Contenido: Formulario para agregar perfume de dama en la base de datos
+12. **Página para agregar perfume de Caballero**
+    - **URL:** /add_perfume
+    - **Contenido:** Formulario para agregar perfume de caballero en la base de datos.
+    - **Solo para administradores:** Sí
 
+13. **Página para agregar perfume de Dama**
+    - **URL:** /add_perfume_woman
+    - **Contenido:** Formulario para agregar perfume de dama en la base de datos.
+    - **Solo para administradores:** Sí
 
-_#. Página de Sobre Mì (se modificara, para un proximo " login | register " de usuario)
-   - URL: /sobre_mi/
-   - Contenido: Solo muestra la clase "Staff" de la base de datos
+14. **Página de Sobre Mí**
+    - **URL:** /sobre_mi/
+    - **Contenido:** Solo muestra la clase "Staff" de la base de datos.
+
+15. **Editar Perfume de Caballero**
+    - **URL:** /perfume/<int:perfume_id>/edit/
+    - **Contenido:** Muestra formulario para editar el perfume seleccionado.
+    - **Solo para administradores:** Sí
+
+16. **Eliminar Perfume de Caballero**
+    - **URL:** /perfume/<int:perfume_id>/delete/
+    - **Contenido:** Elimina el perfume seleccionado.
+    - **Solo para administradores:** Sí
+
+17. **Editar Perfume de Dama**
+    - **URL:** /perfume_woman/<int:perfume_id>/edit/
+    - **Contenido:** Muestra formulario para editar el perfume seleccionado.
+    - **Solo para administradores:** Sí
+
+18. **Eliminar Perfume de Dama**
+    - **URL:** /perfume_woman/<int:perfume_id>/delete/
+    - **Contenido:** Elimina el perfume seleccionado.
+    - **Solo para administradores:** Sí
+
+19. **Página de Login**
+    - **URL:** /login/
+    - **Contenido:** Formulario de login.
+
+20. **Página de Logout**
+    - **URL:** /logout/
+    - **Contenido:** Cierra la sesión del usuario.
+
+21. **Página de Registro**
+    - **URL:** /register/
+    - **Contenido:** Formulario de registro.
+
+22. **Detalle del Perfil**
+    - **URL:** /perfil/
+    - **Contenido:** Muestra los detalles del perfil del usuario.
+
+23. **Subir Avatar**
+    - **URL:** /subir-avatar/
+    - **Contenido:** Muestra formulario para subir un avatar.
+
+24. **Eliminar Avatar**
+    - **URL:** /eliminar-avatar/
+    - **Contenido:** Elimina el avatar del perfil del usuario.
+
+25. **Editar Perfil de Usuario**
+    - **URL:** /perfil/editar/
+    - **Contenido:** Muestra formulario para editar los detalles del usuario.
+
+26. **Cambiar Contraseña**
+    - **URL:** /perfil/cambiar_contraseña/
+    - **Contenido:** Muestra formulario para cambiar la contraseña del usuario.
+
 
 
 Archivos y Configuración:
