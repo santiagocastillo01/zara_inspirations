@@ -8,7 +8,8 @@ perfumes, filtrar por nombre, y ver detalles específicos de cada perfume e
 inspiración. Solo los usuarios administradores tienen permisos
 para agregar, editar y eliminar perfumes.
 
-
+# Link video en "Youtube":
+https://www.youtube.com/watch?v=K8aBCi3_oRs
 
 
 Requisitos:
