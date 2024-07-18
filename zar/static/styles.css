@@ -101,18 +101,7 @@ header {
     align-items: center;
     z-index: 100;
 }
-.navbar #user_img{
-    width: 4rem;
-    transition: transform 0.3s;  
-    mask-image: linear-gradient(
-        white 90%,
-        transparent
-    );
-}
 
-.navbar #user_img:hover{
-    transform: scale(1.05);
-}
 .logo {
     font-size: 2.5rem;
     color: var(--text-color);
@@ -475,4 +464,69 @@ span {
     color: var(--text-color);
 }
 
+
+@media all and (max-width: 880px){
+    .logo {
+        font-size: 2rem;
+        color: var(--text-color);
+        font-weight: 600;
+        transition: .3s;
+    }
+    .logo:hover {
+        font-size: 2.1rem;    
+    }
+    .navbar{
+        margin: 0;
+    }
+    
+    .navbar a {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        font-weight: 500;
+        margin-left: 2.5rem;
+        transition: .3s;
+    }
+    
+    .navbar a:hover {
+        font-size: 1.4rem;    
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        color: var(--main-color);
+    }
+}
+
+@media all and (max-width: 705px){
+    .logo {
+        font-size: 1.5rem;
+        color: var(--text-color);
+        font-weight: 600;
+        transition: .3s;
+    }
+    .logo:hover {
+        font-size: 1.7rem;    
+    }
+    
+    .navbar{
+        margin: 0;
+    }
+    .navbar a {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        font-weight: 500;
+        margin-left: 1rem;
+        transition: .3s;
+
+    }
+    
+    .navbar a:hover {
+        font-size: 1rem;    
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        color: var(--main-color);
+    }
+}
 
