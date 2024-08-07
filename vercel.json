@@ -1,18 +1,20 @@
 {
-    "builds": [
-      {
-        "src": "manage.py",
-        "use": "@vercel/python",
-        "config": {
-          "maxLambdaSize": "50mb"
-        }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "manage.py"
-      }
-    ]
+  "builds": [
+    {
+      "src": "zains/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "zains/wsgi.py"
+    }
+  ],
+  "hooks": {
+    "build": "bash build.sh"
+  },
+  "env": {
+    "PYTHON_VERSION": "3.9"
   }
-  
+}
